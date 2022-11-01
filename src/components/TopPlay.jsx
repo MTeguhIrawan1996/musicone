@@ -113,12 +113,12 @@ const TopPlay = () => {
             enabled: true,
           }}
           modules={[FreeMode, Keyboard]}
-          className="mt-4 lg:w-[80%]"
+          className="mt-4"
         >
           {topPlays?.map((song, i) => (
             <SwiperSlide
               key={song?.key}
-              style={{ width: "20%", height: "auto" }}
+              style={{ width: "25%", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
               <Link to={`/artists/${song?.artists[0].adamid}`}>
