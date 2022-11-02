@@ -27,11 +27,21 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#191624]">
+      <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#191624] relative">
         <img src={logo} alt="logo" className="w-full h-14 object-contain" />
         <NavLinks />
+        <div className="absolute bottom-0 py-3">
+          <div className="flex flex-col justify-center items-center">
+            <p className="text-white text-sm">
+              Created by{" "}
+              <span className="font-semibold text-cyan-400">
+                M. Teguh Irawan
+              </span>
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="absolute md:hidden block top-6 right-3 cursor-pointer z-10">
+      <div className="absolute md:hidden block top-6 sm:top-4 right-3 cursor-pointer z-10">
         {mobileMenuOpen ? (
           <RiCloseLine
             className="w-9 h-9 text-white"
@@ -51,6 +61,16 @@ const Sidebar = () => {
       >
         <img src={logo} alt="logo" className="w-full h-14 object-contain" />
         <NavLinks handleClick={() => setMobileMenuOpen(false)} />
+        <div className="absolute bottom-0 py-3">
+          <div className="flex flex-col justify-center items-center">
+            <p className="text-white text-sm">
+              Created by{" "}
+              <span className="font-semibold text-cyan-400">
+                M. Teguh Irawan
+              </span>
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

@@ -27,14 +27,12 @@ const TopChartCard = ({
         alt={song?.title}
         className="w-10 h-10 rounded-lg"
       />
-      <div className="flex-1 flex flex-col justify-center mx-3">
+      <div className="flex-1 flex flex-col justify-center mx-3 sm:w-60 w-40">
         <Link to={`/songs/${song?.key}`}>
-          <p className="w-[90%] truncate text-md font-bold text-white">
-            {song?.title}
-          </p>
+          <p className="text-md font-bold text-white truncate">{song?.title}</p>
         </Link>
         <Link to={`/artists/${song?.artists[0].adamid}`}>
-          <p className="w-[90%] truncate text-base text-gray-300 mt-1">
+          <p className="text-base text-gray-300 mt-1 truncate">
             {song?.subtitle}
           </p>
         </Link>
@@ -75,7 +73,7 @@ const TopPlay = () => {
       ref={divRef}
       className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col"
     >
-      <div className="w-full flex flex-col mt-10 md:mt-0">
+      <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Charts</h2>
           <Link to="/top-charts">
@@ -96,7 +94,7 @@ const TopPlay = () => {
           ))}
         </div>
       </div>
-      <div className="w-full flex flex-col mt-5">
+      <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Artists</h2>
           <Link to="/top-artists">
@@ -113,12 +111,12 @@ const TopPlay = () => {
             enabled: true,
           }}
           modules={[FreeMode, Keyboard]}
-          className="mt-4"
+          className="mt-4 w-[80%]"
         >
           {topPlays?.map((song, i) => (
             <SwiperSlide
               key={song?.key}
-              style={{ width: "25%", height: "auto" }}
+              style={{ width: "20%", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
               <Link to={`/artists/${song?.artists[0].adamid}`}>
