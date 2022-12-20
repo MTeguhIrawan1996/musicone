@@ -58,7 +58,7 @@ const TopPlay = () => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
   });
 
-  const topPlays = data?.slice(0, 5);
+  const topPlays = data?.slice(4, 9);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -113,7 +113,7 @@ const TopPlay = () => {
           modules={[FreeMode, Keyboard]}
           className="mt-4 w-[80%]"
         >
-          {topPlays?.map((song, i) => (
+          {topPlays?.map((song) => (
             <SwiperSlide
               key={song?.key}
               style={{ width: "20%", height: "auto" }}
