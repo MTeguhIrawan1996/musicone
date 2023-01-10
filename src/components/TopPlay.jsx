@@ -23,7 +23,7 @@ const TopChartCard = ({
     <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
     <div className="flex-1 flex flex-row justify-between items-center">
       <img
-        src={song?.images.coverart}
+        src={song?.images ? song?.images.coverart : ""}
         alt={song?.title}
         className="w-10 h-10 rounded-lg"
       />
@@ -31,7 +31,7 @@ const TopChartCard = ({
         <Link to={`/songs/${song?.key}`}>
           <p className="text-md font-bold text-white truncate">{song?.title}</p>
         </Link>
-        <Link to={`/artists/${song?.artists[0].adamid}`}>
+        <Link to={`/artists/${song?.artists ? song?.artists[0].adamid : ""}`}>
           <p className="text-base text-gray-300 mt-1 truncate">
             {song?.subtitle}
           </p>
@@ -58,7 +58,7 @@ const TopPlay = () => {
     divRef.current.scrollIntoView({ behavior: "smooth" });
   });
 
-  const topPlays = data?.slice(4, 9);
+  const topPlays = data?.slice(0, 5);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -119,9 +119,11 @@ const TopPlay = () => {
               style={{ width: "20%", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
-              <Link to={`/artists/${song?.artists[0].adamid}`}>
+              <Link
+                to={`/artists/${song?.artists ? song?.artists[0].adamid : ""}`}
+              >
                 <img
-                  src={song?.images.background}
+                  src={song?.images ? song?.images.background : ""}
                   alt="name"
                   className="rounded-full w-full object-cover"
                 />
